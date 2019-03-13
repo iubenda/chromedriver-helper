@@ -20,8 +20,11 @@ module Chromedriver
         items.map {|k| "#{BUCKET_URL}/#{k}"}
       end
 
+      # we lock to the version 73
+      VERSION = /73/
+
       def newest_download
-        downloads.last
+        downloads.grep(VERSION).last
       end
     end
   end
